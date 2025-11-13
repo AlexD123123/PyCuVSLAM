@@ -1,0 +1,24 @@
+cd /home/alexandra/Documents/pycuslam_gitted/PyCuVSLAM/
+docker build -t pycuvslam:v01 -f docker_cuda_128_extended_libraries/Dockerfile_v01 .
+
+Other:--------------------------------------
+# created in docker.io/library/pycuvslam:v01
+#2. sudo docker tag pycuvslam:v01 <registry>/<username>/pycuvslam:v01
+#3. docker push <registry>/<username>/pycuvslam:v01
+
+
+--------------------------------------
+newgrp docker
+docker run --gpus all -it pycuvslam:v01
+
+
+docker login registry.gitlab.com
+docker pull registry.gitlab.com/yuvalb29/pycuslam_gitted:latest
+docker pull registry.gitlab.com/yuvalb29/pycuslam_gitted:cuda_128_PIL
+----------------------
+docker images
+
+docker run --gpus all -it -v /home/alexandra/Documents/:/Documents  registry.gitlab.com/yuvalb29/pycuslam_gitted:cuda_128_PIL
+
+
+docker run --gpus all -it -v /home/alexandra/Documents/:/Documents  pycuvslam:v01
